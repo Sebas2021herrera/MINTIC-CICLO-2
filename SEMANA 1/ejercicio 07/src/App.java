@@ -4,28 +4,37 @@ Pedir un número, comprobar si es primo y preguntarsi quiere introducir más(S/N
 import java.util.*;
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
+        var scanner = new Scanner(System.in);
         int numero;
+        String dato ="";
         
         do {
-            String dato="";
+            
             System.out.println("Digite un numero: ");
             numero = scanner.nextInt();
+            
             if(esPrimo(numero)==true){
-                System.out.println("el numero "+ numero + "es Primo"+"\n");
+                System.out.println("el numero "+ numero + " es Primo"+"\n");
+                
+                dato= scanner.nextLine();
+
                 System.out.println("Desea seguir S/N");
-                 dato = scanner.nextLine();
+                dato = scanner.nextLine();
 
             }
+            
             else
             {
-                System.out.println("el numero "+ numero + "NO es Primo"); 
+                System.out.println("el numero "+ numero + " NO es Primo");
+                System.out.println("Desea seguir S/N");
+                dato = scanner.nextLine();
            
             }
             
             
 
-        } while (dato.equalsIgnoreCase("n")!=true);
+        }
+        while (dato.equalsIgnoreCase("n")!=true);
     }
     public static boolean esPrimo(int numero){
         int contador = 2;
